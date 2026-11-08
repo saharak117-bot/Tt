@@ -1,114 +1,66 @@
 <!doctype html>
-<html lang="th"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#101827"><link rel="manifest" href="manifest.webmanifest">
-<title>ไฮโลลูกเต๋า 3 ลูก</title>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827"><meta name="description" content="เครื่องเล่นเพลงส่วนตัว พร้อมอีควอไลเซอร์และเล่นเบื้องหลัง">
+<link rel="manifest" href="manifest.webmanifest"><title>เครื่องเล่นเพลง</title>
 <style>
-:root{color-scheme:dark;--gold:#f6c85f}*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at top,#263a55,#101827 65%);color:#f7f8fb;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif;min-height:100vh}
-main{width:min(680px,100%);margin:auto;padding:20px 16px 40px}h1{text-align:center;margin:4px 0 5px;font-size:27px;color:var(--gold)}
-.sub{text-align:center;color:#c4cede;margin:0 0 20px;font-size:14px}
-.panel{background:#1b293def;border:1px solid #40516a;border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 12px 30px #0005}
-.status{text-align:center;color:#d8e1ef;min-height:28px;font-weight:600}
-.stage{position:relative;overflow:hidden;width:100%;max-width:490px;height:310px;margin:12px auto 10px;padding:14px 12px;border-radius:18px;background:linear-gradient(180deg,#26364d,#172438);border:1px solid #60718a;touch-action:pan-y}
-.dice-row{position:absolute;inset:12px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;z-index:1}
-.die-slot{height:112px;border-radius:14px;background:#0d1727;border:1px dashed #66758a;display:flex;align-items:center;justify-content:center;position:relative}.die-slot:nth-child(1){grid-column:1/3;grid-row:1;width:50%;justify-self:center}.die-slot:nth-child(2){grid-column:1;grid-row:2}.die-slot:nth-child(3){grid-column:2;grid-row:2}
-.die{width:72px;height:72px;border-radius:16px;background:linear-gradient(145deg,#fff,#dce4ef);box-shadow:0 5px 0 #aab5c4,0 8px 14px #0007;color:#182235;display:grid;place-items:center;font-size:49px;font-weight:800}
-.die.hidden{visibility:hidden}.die-label{position:absolute;bottom:5px;font-size:11px;color:#aebbd0}
-.cup{position:absolute;z-index:3;left:12px;bottom:14px;height:calc(100% - 28px);width:calc(100% - 24px);border-radius:12px 12px 20px 20px;background:linear-gradient(100deg,#596779,#d7dee6 22%,#8795a6 48%,#e3e8ee 70%,#596779);border:2px solid #e1e7ef;box-shadow:0 9px 14px #0009,inset 0 4px 8px #fff8;display:flex;align-items:center;justify-content:center;user-select:none;touch-action:none;cursor:grab;transition:transform .24s ease}
-.cup:active{cursor:grabbing}.cup:before{content:"";position:absolute;left:-5px;right:-5px;top:-7px;height:13px;border-radius:50%;background:linear-gradient(#f4f7fa,#748397);border:2px solid #dce4ed}
-.cup:after{content:"เลื่อน";font-size:13px;font-weight:800;color:#253246;text-shadow:0 1px #fff9}.cup.done{display:none}
-.hint{text-align:center;font-size:13px;color:#b9c7d9;margin:9px 0 0}
-.progress{display:flex;justify-content:center;gap:9px;margin-top:12px}.dot{width:11px;height:11px;border-radius:50%;background:#52627a}.dot.active{background:var(--gold);box-shadow:0 0 10px #f6c85f99}
-button{border:0;border-radius:12px;padding:12px 17px;font-size:15px;font-weight:750;background:var(--gold);color:#182235;cursor:pointer}
-button.secondary{background:#34445b;color:#f5f7fa;border:1px solid #62738b}button.danger{background:#642f38;color:#fff;border:1px solid #a65a66}
-.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:14px}.result{text-align:center;font-size:24px;font-weight:850;color:var(--gold);min-height:36px;margin:8px 0 0}
-.numbers{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;color:#e8edf5;font-size:14px}.numbers b{color:var(--gold);font-size:18px}
-h2{font-size:19px;margin:0 0 12px}.rules{font-size:13px;color:#c4cede;line-height:1.7}
-.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}
-th,td{padding:9px 7px;text-align:center;border-bottom:1px solid #40516a}th{color:var(--gold);font-weight:750}
-.empty{text-align:center;color:#9eacc0;padding:18px}.footer{text-align:center;color:#8998ad;font-size:11px;margin-top:18px}
-</style></head><body><main>
-<h1>🎲 ไฮโลลูกเต๋า 3 ลูก</h1><p class="sub">เขย่าแล้วเลื่อนแก้วขึ้นเพื่อเปิดลูกเต๋าทีละลูก</p>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#172338;--line:#344761;--gold:#f6c85f;--muted:#aab8cb;--green:#80ddb1}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#253953,var(--bg) 58%);color:#f5f7fb;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif}main{max-width:760px;margin:auto;padding:20px 14px 48px}.top{text-align:center;margin:4px 0 18px}.top h1{margin:0;color:var(--gold);font-size:27px}.top p{margin:5px;color:var(--muted);font-size:13px}.panel{background:#172338ed;border:1px solid var(--line);border-radius:18px;padding:16px;margin:13px 0;box-shadow:0 12px 28px #0004}.cover{width:170px;height:170px;margin:4px auto 15px;border-radius:22px;background:linear-gradient(145deg,#324c6b,#111b2c);display:grid;place-items:center;font-size:76px;border:1px solid #58708d;box-shadow:0 10px 28px #0005}.track{text-align:center;min-height:58px}.track strong{display:block;font-size:19px;overflow-wrap:anywhere}.track small{color:var(--muted)}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--gold);height:28px}.controls{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0}.btn{border:1px solid #50647f;background:#2a3d57;color:white;border-radius:13px;padding:11px 14px;font-weight:750;font-size:14px}.btn.primary{background:var(--gold);color:#182235;border-color:var(--gold);font-size:20px;min-width:62px}.btn.active{border-color:var(--green);color:var(--green);background:#18372f}.btn:disabled{opacity:.45}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section-title h2{font-size:18px;margin:0}.muted{color:var(--muted);font-size:12px}.filebtn{display:inline-block;text-align:center;cursor:pointer}.filebtn input{display:none}.playlist{list-style:none;padding:0;margin:10px 0 0;max-height:260px;overflow:auto}.playlist li{display:flex;gap:8px;align-items:center;padding:10px;border-top:1px solid #344761;cursor:pointer}.playlist li.current{background:#2b405a;border-radius:10px}.playlist li span{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.playlist li small{color:var(--muted)}.playlist button{background:transparent;border:0;color:#ffb0b0;font-size:18px}.setting{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;margin:11px 0}.setting input{grid-column:1/3}.setting output{color:var(--gold);font-variant-numeric:tabular-nums}.eq{display:grid;grid-template-columns:repeat(5,1fr);gap:10px 7px}.band{text-align:center;font-size:11px;color:var(--muted)}.band input{height:125px;width:25px;writing-mode:vertical-lr;direction:rtl;accent-color:var(--gold)}.band b{display:block;color:#f5f7fb;font-size:12px}.presets{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.note{font-size:12px;color:var(--muted);line-height:1.65}.status{color:var(--green);text-align:center;min-height:22px;font-size:12px}select{background:#263951;color:white;border:1px solid #526780;border-radius:9px;padding:9px;width:100%}button{cursor:pointer} @media(min-width:600px){.eq{grid-template-columns:repeat(10,1fr)}}
+</style></head>
+<body><main>
+<header class="top"><h1>🎧 เครื่องเล่นเพลง</h1><p>เล่นเพลงจากเครื่อง • ปรับแต่งเสียง • เล่นต่อเนื่องเบื้องหลัง</p></header>
 <section class="panel">
-<div class="status" id="status">กด “เขย่าลูกเต๋า” เพื่อเริ่มรอบใหม่</div>
-<div class="stage" id="stage"><div class="dice-row">
-<div class="die-slot"><div class="die hidden" id="die0">⚀</div><span class="die-label">ลูกที่ 1 (ด้านบน)</span></div>
-<div class="die-slot"><div class="die hidden" id="die1">⚀</div><span class="die-label">ลูกที่ 2</span></div>
-<div class="die-slot"><div class="die hidden" id="die2">⚀</div><span class="die-label">ลูกที่ 3</span></div>
-</div><div class="cup" id="cup" aria-label="เลื่อนแก้วขึ้นเพื่อเปิด และดึงลงมาปิดลูกเต๋าทั้ง 3 ลูก"></div></div>
-<div class="hint" id="hint">หลังเขย่า ใช้นิ้วลากแก้วไปทางขวาทีละจังหวะ</div>
-<div class="progress"><i class="dot" id="dot0"></i><i class="dot" id="dot1"></i><i class="dot" id="dot2"></i></div>
-<div class="result" id="result"></div><div class="numbers" id="numbers"></div>
-<div class="actions"><button id="rollBtn">เขย่าลูกเต๋า</button><button class="secondary" id="nextBtn" disabled>เริ่มรอบถัดไป</button><button class="secondary" id="soundBtn" aria-pressed="true">🔊 เสียงเปิดอยู่</button></div>
-<div class="volume-control" style="max-width:420px;margin:14px auto 2px;text-align:center">
- <label for="volumeSlider" style="display:block;color:#c4cede;font-size:13px;margin-bottom:7px">ระดับเสียงลูกเต๋า <strong id="volumeValue" style="color:#f6c85f">100%</strong></label>
- <input id="volumeSlider" type="range" min="0" max="100" step="5" value="100" style="width:100%;accent-color:#f6c85f">
- <div style="display:flex;justify-content:space-between;color:#9eacc0;font-size:11px"><span>เบา</span><span>ดัง</span></div>
-</div>
+<div class="cover">♫</div><div class="track"><strong id="title">ยังไม่ได้เลือกเพลง</strong><small id="artist">เพิ่มไฟล์เพลงจากอุปกรณ์ของคุณ</small></div>
+<audio id="audio" preload="metadata" playsinline></audio>
+<div style="margin-top:14px"><input id="seek" type="range" min="0" max="1000" value="0"><div class="time"><span id="elapsed">0:00</span><span id="duration">0:00</span></div></div>
+<div class="controls"><button class="btn" id="shuffle" aria-label="สุ่มเพลง">🔀 สุ่ม</button><button class="btn" id="prev">⏮</button><button class="btn primary" id="play">▶</button><button class="btn" id="next">⏭</button><button class="btn" id="repeat">🔁 ปิด</button></div>
+<div class="row"><label class="btn filebtn">＋ เพิ่มเพลง<input id="files" type="file" accept="audio/*" multiple></label><button class="btn" id="clear">ล้างรายการ</button></div>
+<div class="status" id="status" aria-live="polite">พร้อมใช้งาน</div>
+<ul class="playlist" id="playlist"></ul>
 </section>
-<section class="panel"><h2>ประวัติผลย้อนหลัง</h2><div class="table-wrap">
-<table><thead><tr><th>รอบ</th><th>ลูก 1</th><th>ลูก 2</th><th>ลูก 3</th><th>รวม</th><th>ผล</th></tr></thead><tbody id="history"></tbody></table><div class="empty" id="empty">ยังไม่มีประวัติ</div></div>
-<div class="actions"><button class="danger" id="clearBtn">ล้างประวัติ</button></div></section>
-<p class="footer">ประวัติบันทึกไว้ในเบราว์เซอร์ของโทรศัพท์เครื่องนี้</p></main>
+<section class="panel"><div class="section-title"><h2>🎚️ อีควอไลเซอร์ 10 ย่าน</h2><span class="muted">-12 ถึง +12 dB</span></div>
+<div class="presets"><button class="btn" data-preset="flat">Flat</button><button class="btn" data-preset="bass">Bass Boost</button><button class="btn" data-preset="treble">Treble</button><button class="btn" data-preset="vocal">Vocal</button><button class="btn" data-preset="rock">Rock</button><button class="btn" data-preset="reset">รีเซ็ต</button></div>
+<div class="eq" id="eq"></div>
+</section>
+<section class="panel"><div class="section-title"><h2>🔊 ปรับแต่งเสียงละเอียด</h2></div>
+<div class="setting"><label for="bass">Bass / เบส</label><output id="bassVal">0 dB</output><input id="bass" type="range" min="-12" max="12" value="0" step="0.5"></div>
+<div class="setting"><label for="treble">Treble / แหลม</label><output id="trebleVal">0 dB</output><input id="treble" type="range" min="-12" max="12" value="0" step="0.5"></div>
+<div class="setting"><label for="presence">Presence / ความชัด</label><output id="presenceVal">0 dB</output><input id="presence" type="range" min="-12" max="12" value="0" step="0.5"></div>
+<div class="setting"><label for="preamp">Preamp / กำลังสัญญาณ</label><output id="preampVal">0 dB</output><input id="preamp" type="range" min="-12" max="6" value="0" step="0.5"></div>
+<div class="setting"><label for="volume">ระดับเสียง</label><output id="volumeVal">80%</output><input id="volume" type="range" min="0" max="100" value="80"></div>
+<div class="setting"><label for="balance">Balance / ซ้าย–ขวา</label><output id="balanceVal">กลาง</output><input id="balance" type="range" min="-1" max="1" value="0" step="0.05"></div>
+<div class="setting"><label for="speed">ความเร็วเล่น</label><output id="speedVal">1.00×</output><input id="speed" type="range" min="0.5" max="2" value="1" step="0.05"></div>
+<div class="setting"><label for="bassboost">Bass Boost เพิ่มพิเศษ</label><output id="bassboostVal">0 dB</output><input id="bassboost" type="range" min="0" max="12" value="0" step="0.5"></div>
+<p class="note">หมายเหตุ: การเพิ่มเบสหรือ Preamp มากเกินไปอาจทำให้เสียงแตก ควรปรับทีละน้อย</p>
+</section>
+<section class="panel"><div class="section-title"><h2>⚙️ การเล่น</h2></div>
+<div class="setting"><label for="crossfade">เว้นช่วงระหว่างเพลง</label><output id="crossfadeVal">0 วินาที</output><input id="crossfade" type="range" min="0" max="10" value="0" step="1"></div>
+<p class="note">โหมดวนซ้ำ: ปิด = เล่นตามรายการหนึ่งรอบ • ทั้งหมด = วนทั้งรายการ • เพลงเดียว = วนเพลงปัจจุบัน</p>
+<p class="note">เล่นเบื้องหลัง: เมื่อเริ่มเล่นเพลงใน Chrome แล้ว สามารถสลับไปแอปอื่นหรือล็อกหน้าจอได้ในอุปกรณ์ที่รองรับ โดยการทำงานขึ้นกับ Android, เบราว์เซอร์ และการตั้งค่าประหยัดแบตเตอรี่</p>
+</section>
+<footer class="note" style="text-align:center">ไฟล์เพลงจะเล่นจากอุปกรณ์ของคุณ ไม่ได้อัปโหลดไปเซิร์ฟเวอร์</footer>
+</main>
 <script>
-const $=id=>document.getElementById(id),faces=['','⚀','⚁','⚂','⚃','⚄','⚅'];
-let dice=[1,1,1],revealed=0,active=false,startY=0,startOffset=0,offset=0;
-let soundOn=localStorage.getItem('hilo3_sound')!=='off',audioCtx=null,shakeVolume=Number(localStorage.getItem('hilo3_volume')||100);
-let history=JSON.parse(localStorage.getItem('hilo3_history')||'[]');
-const thai=['','หนึ่ง','สอง','สาม','สี่','ห้า','หก'];
-function getAudio(){if(!audioCtx){const AC=window.AudioContext||window.webkitAudioContext;if(AC)audioCtx=new AC()}if(audioCtx?.state==='suspended')audioCtx.resume();return audioCtx}
-function rattle(){
- if(!soundOn||shakeVolume<=0)return;
- const ctx=getAudio();if(!ctx)return;
- const now=ctx.currentTime,master=ctx.createGain();
- master.gain.value=(shakeVolume/100)*0.95;
- master.connect(ctx.destination);
- // หนึ่งครั้งที่กด = หนึ่งชุดเสียงเขย่าที่ชัดและดัง
- for(let i=0;i<22;i++){
-  const t=now+i*.035,osc=ctx.createOscillator(),gain=ctx.createGain(),filter=ctx.createBiquadFilter();
-  osc.type='square';osc.frequency.setValueAtTime(1100+Math.random()*2300,t);
-  filter.type='bandpass';filter.frequency.value=1800+Math.random()*1600;filter.Q.value=.7;
-  gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(.22,t+.002);gain.gain.exponentialRampToValueAtTime(.0001,t+.022);
-  osc.connect(filter);filter.connect(gain);gain.connect(master);osc.start(t);osc.stop(t+.025);
- }
-}
-function speak(t){
- if(!soundOn||!('speechSynthesis'in window))return;
- speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='th-TH';u.rate=.88;
- // ลดเสียงพูดให้เบากว่าเสียงลูกเต๋า
- u.volume=Math.max(.05,Math.min(.55,(shakeVolume/100)*.55));
- speechSynthesis.speak(u)
-}
-function syncSound(){
- $('soundBtn').textContent=soundOn?'🔊 เสียงเปิดอยู่':'🔇 ปิดเสียงอยู่';
- $('soundBtn').setAttribute('aria-pressed',String(soundOn));
- if(!soundOn&&'speechSynthesis'in window)speechSynthesis.cancel();
- localStorage.setItem('hilo3_sound',soundOn?'on':'off');
- $('volumeSlider').value=shakeVolume;$('volumeValue').textContent=shakeVolume+'%';
-}
-function paintCup(){$('cup').style.transform=`translateY(${-offset}px)`}
-function maxOffset(){return 300}
-function setStatus(t){$('status').textContent=t}
-function renderHistory(){$('history').innerHTML='';$('empty').style.display=history.length?'none':'block';history.slice(0,100).forEach((r,i)=>{const tr=document.createElement('tr');[history.length-i,r.d[0],r.d[1],r.d[2],r.sum,r.result].forEach(v=>{let td=document.createElement('td');td.textContent=v;tr.appendChild(td)});$('history').appendChild(tr)})}
-function resetVisual(){revealed=0;offset=0;active=false;$('cup').classList.remove('done');$('cup').style.display='flex';paintCup();for(let i=0;i<3;i++){$('die'+i).classList.add('hidden');$('die'+i).textContent=faces[dice[i]];$('dot'+i).classList.remove('active')}$('result').textContent='';$('numbers').textContent='';$('hint').textContent='หลังเขย่า เลื่อนแก้วขึ้นด้านบนเพื่อเปิดทีละลูก เมื่อเปิดครบให้ดึงแก้วลงเพื่อปิด';$('nextBtn').disabled=true}
-function newRound(){
- getAudio();
- // สุ่มใหม่จนกว่าผลรวมจะไม่ใช่ 11
- do{dice=[1,2,3].map(()=>Math.floor(Math.random()*6)+1)}while(dice.reduce((a,b)=>a+b,0)===11);
- resetVisual();active=true;setStatus('ลูกเต๋าพร้อมแล้ว — เลื่อนแก้วขึ้นด้านบนเพื่อเปิดลูกที่ 1');rattle()
-}
-function revealOne(){if(!active||revealed>=3)return;const i=revealed;revealed++;$('die'+i).classList.remove('hidden');$('dot'+i).classList.add('active');setStatus(`เปิดลูกที่ ${i+1} ได้ ${thai[dice[i]]}`);speak(thai[dice[i]]);
- if(revealed===3){active=false;const sum=dice.reduce((a,b)=>a+b,0),result=sum<=10?'ต่ำ':'สูง';$('result').textContent=`รวม ${sum} แต้ม — ${result}`;$('numbers').innerHTML=`ลูกเต๋า: <b>${dice.join(' · ')}</b>`;speak(`${thai[dice[0]]} ${thai[dice[1]]} ${thai[dice[2]]} รวม ${sum} แต้ม ${result}`);history.unshift({d:[...dice],sum,result,at:Date.now()});history=history.slice(0,100);localStorage.setItem('hilo3_history',JSON.stringify(history));renderHistory();setStatus('เปิดครบทั้ง 3 ลูกแล้ว');$('hint').textContent='เปิดครบแล้ว — ดึงแก้วลงมาคลุมลูกเต๋าทั้ง 3 ลูกเพื่อปิด แล้วกดเขย่าเล่นรอบใหม่ได้';$('nextBtn').disabled=false;$('rollBtn').disabled=false}
- else $('hint').textContent=`เปิดแล้ว ${revealed}/3 ลูก — เลื่อนแก้วขึ้นต่อเพื่อเปิดลูกที่ ${revealed+1}`}
-function pointerDown(e){if(!active&&revealed!==3)return;startY=e.clientY;startOffset=offset;$('cup').setPointerCapture(e.pointerId)}
-function pointerMove(e){if(!$('cup').hasPointerCapture(e.pointerId))return;offset=Math.max(0,Math.min(maxOffset(),startOffset+startY-e.clientY));paintCup()}
-function pointerUp(e){if(revealed===3){if(offset<maxOffset()-45){resetVisual();setStatus('ปิดแก้วแล้ว — กดเขย่าลูกเต๋าเพื่อเริ่มรอบใหม่');$('hint').textContent='ดึงแก้วลงปิดเรียบร้อยแล้ว กดเขย่าเพื่อเล่นรอบใหม่';}else{offset=maxOffset();paintCup()}return;}if(!active)return;const step=maxOffset()/3,target=Math.min(3,Math.floor((offset+step*.35)/step));while(revealed<target)revealOne();offset=Math.min(maxOffset(),revealed*step);paintCup()}
-$('cup').addEventListener('pointerdown',pointerDown);$('cup').addEventListener('pointermove',pointerMove);$('cup').addEventListener('pointerup',pointerUp);$('cup').addEventListener('pointercancel',pointerUp);
-$('rollBtn').addEventListener('click',newRound);$('nextBtn').addEventListener('click',newRound);
-$('soundBtn').addEventListener('click',()=>{soundOn=!soundOn;if(soundOn)getAudio();syncSound()});
-$('volumeSlider').addEventListener('input',e=>{shakeVolume=Number(e.target.value);localStorage.setItem('hilo3_volume',String(shakeVolume));$('volumeValue').textContent=shakeVolume+'%'});
-$('clearBtn').addEventListener('click',()=>{if(confirm('ต้องการล้างประวัติผลทั้งหมดหรือไม่?')){history=[];localStorage.removeItem('hilo3_history');renderHistory()}});
-syncSound();renderHistory();resetVisual();
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+const $=id=>document.getElementById(id), audio=$('audio');let tracks=[],index=-1,repeatMode=0,shuffle=false,urls=[],ctx=null,filters=[],bassFilter=null,trebleFilter=null,presenceFilter=null,preampGain=null,pan=null,boost=null,source=null,fadeTimer=null;
+const bands=[60,120,250,500,1000,2000,4000,8000,12000,16000];
+function fmt(s){if(!isFinite(s))return '0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+function setStatus(s){$('status').textContent=s}
+function setupAudio(){if(ctx)return;const AC=window.AudioContext||window.webkitAudioContext;if(!AC){setStatus('อุปกรณ์นี้ไม่รองรับระบบปรับ EQ');return}ctx=new AC();source=ctx.createMediaElementSource(audio);bassFilter=ctx.createBiquadFilter();bassFilter.type='lowshelf';bassFilter.frequency.value=100;trebleFilter=ctx.createBiquadFilter();trebleFilter.type='highshelf';trebleFilter.frequency.value=8000;presenceFilter=ctx.createBiquadFilter();presenceFilter.type='peaking';presenceFilter.frequency.value=3000;presenceFilter.Q.value=1;filters=bands.map(f=>{let n=ctx.createBiquadFilter();n.type='peaking';n.frequency.value=f;n.Q.value=1;return n});preampGain=ctx.createGain();boost=ctx.createGain();boost.gain.value=1;pan=ctx.createStereoPanner?ctx.createStereoPanner():null;let chain=[bassFilter,...filters,trebleFilter,presenceFilter,boost,preampGain];if(pan)chain.push(pan);chain.forEach((n,i)=>{if(i===0)source.connect(n);else chain[i-1].connect(n)});chain[chain.length-1].connect(ctx.destination)}
+function buildEq(){ $('eq').innerHTML='';bands.forEach((f,i)=>{let d=document.createElement('label');d.className='band';d.innerHTML=`<b>${f>=1000?(f/1000)+'k':f}</b><input aria-label="${f} Hz" type="range" min="-12" max="12" step="0.5" value="0" data-band="${i}"><span>0</span>`;$('eq').append(d)});$('eq').addEventListener('input',e=>{if(e.target.dataset.band!==undefined){setupAudio();let i=+e.target.dataset.band,v=+e.target.value;if(filters[i])filters[i].gain.value=v;e.target.nextElementSibling.textContent=v.toFixed(1)}})}
+function updateTrack(){let t=tracks[index];$('title').textContent=t?t.name:'ยังไม่ได้เลือกเพลง';$('artist').textContent=t?'เพลงที่ '+(index+1)+' จาก '+tracks.length:'เพิ่มไฟล์เพลงจากอุปกรณ์ของคุณ';renderList();if('mediaSession'in navigator&&t){navigator.mediaSession.metadata=new MediaMetadata({title:t.name,artist:'เครื่องเล่นเพลง',album:'เพลงจากอุปกรณ์'});}}
+function renderList(){$('playlist').innerHTML='';tracks.forEach((t,i)=>{let li=document.createElement('li');li.className=i===index?'current':'';let span=document.createElement('span');span.textContent=t.name;let sm=document.createElement('small');sm.textContent=i===index?'กำลังเลือก':'';let del=document.createElement('button');del.textContent='×';del.title='นำเพลงออก';del.onclick=e=>{e.stopPropagation();removeTrack(i)};li.append(span,sm,del);li.onclick=()=>playTrack(i);$('playlist').append(li)})}
+function addFiles(files){for(const f of files){if(!f.type.startsWith('audio/'))continue;tracks.push({name:f.name.replace(/\.[^.]+$/,''),file:f,url:URL.createObjectURL(f)})}if(index<0&&tracks.length)index=0;updateTrack();setStatus('เพิ่มเพลงแล้ว '+tracks.length+' เพลง')}
+function removeTrack(i){let was=i===index;URL.revokeObjectURL(tracks[i].url);tracks.splice(i,1);if(i<index)index--;else if(was){audio.pause();index=tracks.length?Math.min(i,tracks.length-1):-1;if(index>=0)playTrack(index)}updateTrack()}
+async function playTrack(i){if(!tracks.length)return;index=(i+tracks.length)%tracks.length;let t=tracks[index];audio.src=t.url;updateTrack();try{setupAudio();if(ctx&&ctx.state==='suspended')await ctx.resume();await audio.play();$('play').textContent='Ⅱ';setStatus('กำลังเล่น');if('mediaSession'in navigator)navigator.mediaSession.playbackState='playing'}catch(e){setStatus('กดเล่นอีกครั้งเพื่อเริ่มเสียง หรือเลือกไฟล์ใหม่')}}
+function togglePlay(){if(!tracks.length){$('files').click();return}if(audio.paused)playTrack(index<0?0:index);else{audio.pause();$('play').textContent='▶';if('mediaSession'in navigator)navigator.mediaSession.playbackState='paused'}}
+function next(){if(!tracks.length)return;let n;if(shuffle&&tracks.length>1){do{n=Math.floor(Math.random()*tracks.length)}while(n===index)}else n=index+1;if(n>=tracks.length){if(repeatMode===1)n=0;else{audio.pause();$('play').textContent='▶';return}}playTrack(n)}
+function previous(){if(audio.currentTime>3){audio.currentTime=0;return}playTrack(Math.max(0,index-1))}
+$('files').onchange=e=>{addFiles([...e.target.files]);e.target.value=''};$('clear').onclick=()=>{audio.pause();tracks.forEach(t=>URL.revokeObjectURL(t.url));tracks=[];index=-1;audio.removeAttribute('src');updateTrack();$('play').textContent='▶';setStatus('ล้างรายการแล้ว')};$('play').onclick=togglePlay;$('next').onclick=next;$('prev').onclick=previous;
+$('shuffle').onclick=()=>{shuffle=!shuffle;$('shuffle').classList.toggle('active',shuffle);setStatus(shuffle?'เปิดสุ่มเพลง':'ปิดสุ่มเพลง')};$('repeat').onclick=()=>{repeatMode=(repeatMode+1)%3;$('repeat').textContent=['🔁 ปิด','🔁 ทั้งหมด','🔂 เพลงเดียว'][repeatMode];$('repeat').classList.toggle('active',repeatMode!==0)};
+audio.ontimeupdate=()=>{if(!isFinite(audio.duration))return;$('seek').value=audio.currentTime/audio.duration*1000;$('elapsed').textContent=fmt(audio.currentTime);$('duration').textContent=fmt(audio.duration)};$('seek').oninput=e=>{if(isFinite(audio.duration))audio.currentTime=+e.target.value/1000*audio.duration};audio.onended=()=>{if(repeatMode===2){audio.currentTime=0;audio.play()}else{const gap=+$('crossfade').value;if(gap>0){setStatus('พักระหว่างเพลง '+gap+' วินาที');setTimeout(next,gap*1000)}else next()}};audio.onplay=()=>{$('play').textContent='Ⅱ';if('mediaSession'in navigator)navigator.mediaSession.playbackState='playing'};audio.onpause=()=>{$('play').textContent='▶';if('mediaSession'in navigator)navigator.mediaSession.playbackState='paused'};
+if('mediaSession'in navigator){try{navigator.mediaSession.setActionHandler('play',togglePlay);navigator.mediaSession.setActionHandler('pause',()=>audio.pause());navigator.mediaSession.setActionHandler('previoustrack',previous);navigator.mediaSession.setActionHandler('nexttrack',next);navigator.mediaSession.setActionHandler('seekbackward',d=>audio.currentTime=Math.max(0,audio.currentTime-(d.seekOffset||10)));navigator.mediaSession.setActionHandler('seekforward',d=>audio.currentTime=Math.min(audio.duration||Infinity,audio.currentTime+(d.seekOffset||10)))}catch(e){}}
+function bindRange(id,fn,unit=''){let el=$(id),out=$(id+'Val');let upd=()=>{out.textContent=fn(+el.value)+unit};el.oninput=()=>{upd();setupAudio();};upd();return el}
+bindRange('bass',v=>v.toFixed(1),' dB').oninput=e=>{let v=+e.target.value;$('bassVal').textContent=v.toFixed(1)+' dB';setupAudio();if(bassFilter)bassFilter.gain.value=v};bindRange('treble',v=>v.toFixed(1),' dB').oninput=e=>{let v=+e.target.value;$('trebleVal').textContent=v.toFixed(1)+' dB';setupAudio();if(trebleFilter)trebleFilter.gain.value=v};bindRange('presence',v=>v.toFixed(1),' dB').oninput=e=>{let v=+e.target.value;$('presenceVal').textContent=v.toFixed(1)+' dB';setupAudio();if(presenceFilter)presenceFilter.gain.value=v};bindRange('preamp',v=>v.toFixed(1),' dB').oninput=e=>{let v=+e.target.value;$('preampVal').textContent=v.toFixed(1)+' dB';setupAudio();if(preampGain)preampGain.gain.value=Math.pow(10,v/20)};bindRange('volume',v=>v,'%').oninput=e=>{audio.volume=+e.target.value/100;$('volumeVal').textContent=e.target.value+'%'};audio.volume=.8;bindRange('balance',v=>v===0?'กลาง':v<0?'ซ้าย '+Math.round(-v*100)+'%':'ขวา '+Math.round(v*100)+'%').oninput=e=>{let v=+e.target.value;$('balanceVal').textContent=v===0?'กลาง':v<0?'ซ้าย '+Math.round(-v*100)+'%':'ขวา '+Math.round(v*100)+'%';setupAudio();if(pan)pan.pan.value=v};bindRange('speed',v=>v.toFixed(2),'×').oninput=e=>{audio.playbackRate=+e.target.value;$('speedVal').textContent=(+e.target.value).toFixed(2)+'×'};bindRange('bassboost',v=>v.toFixed(1),' dB').oninput=e=>{let v=+e.target.value;$('bassboostVal').textContent=v.toFixed(1)+' dB';setupAudio();if(boost)boost.gain.value=Math.pow(10,v/20)};bindRange('crossfade',v=>v,' วินาที');
+const presets={flat:[0,0,0,0,0,0,0,0,0,0],bass:[6,5,4,2,0,-1,-2,-2,0,1],treble:[-2,-2,-1,0,1,2,4,5,5,4],vocal:[-2,-1,0,2,4,4,2,0,-1,-2],rock:[4,3,1,-1,-2,1,3,4,4,4]};document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{let vals=presets[b.dataset.preset]||presets.flat;document.querySelectorAll('[data-band]').forEach((el,i)=>{el.value=vals[i];el.nextElementSibling.textContent=vals[i]});setupAudio();filters.forEach((f,i)=>f.gain.value=vals[i])});
+buildEq();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
 </script></body></html>
